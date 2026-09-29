@@ -1,0 +1,6 @@
+X,Y,fid,node_label,RPAT,configuration,dps_label,dps_phases,dps_file,trf_label,trf_phases,trf_type
+1000000,1000000,1,T1,10,R-131,SA1,111,15kV-3ph.pch,,,
+1000150,1000000,2,T2,10,R-131,,,,,,
+1000300,1000050,3,T3,15,R-131,,,,TR3,111,Tr1
+1000450,1000050,4,T4,10,R-131,SA4,111,15kV-3ph.pch,,,
+1000300,1000200,5,T5,20,S-121,SA5,111,15kV-3ph.pch,TR5,111,Tr2

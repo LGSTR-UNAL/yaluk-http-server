@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Procesador de Archivos</title>
+</head>
+<body>
+    <h2>Subir archivos de texto</h2>
+
+    <form id="uploadForm">
+        <input type="file" name="files" multiple />
+        <br><br>
+        <button type="submit">Procesar</button>
+    </form>
+
+    <p id="status"></p>
+
+    <script>
+        const form = document.getElementById("uploadForm");
+        const status = document.getElementById("status");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            status.innerText = "Procesando...";
+
+            const response = await fetch("/procesar/", {
+                method: "POST",
+                body: formData
+            });
+
+            if (!response.ok) {
+                status.innerText = "Error al procesar";
+                return;
+            }
+
+            const blob = await response.blob();
+
+            // descargar automáticamente
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "resultado.zip";
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+
+            status.innerText = "Listo ✅";
+        });
+    </script>
+</body>
+</html>

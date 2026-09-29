@@ -1,0 +1,17 @@
+boto3
+pandas
+confluent-kafka
+confluent-kafka-stubs
+psycopg[binary]
+psycopg[pool]
+fastapi
+uvicorn
+jinja2<3.1.4
+geopandas
+matplotlib
+scipy
+python-multipart
+openpyxl
+adjustText
+networkx
+seaborn
